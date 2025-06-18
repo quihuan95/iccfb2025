@@ -544,7 +544,7 @@ class RegistrationHelper
     ];
   }
 
-  public static function getConferenceDetail(string $type = 'international', string $code): array
+  public static function getConferenceDetail(string $type, string $code): array
   {
     $code = strtoupper($code);
 
