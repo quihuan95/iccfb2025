@@ -111,15 +111,5 @@ window.registrationForm = function () {
                 this.isSubmitting = false; // Cho phép submit lại sau khi xong
             }
         },
-        handleExclusiveSelection(opt) {
-            if (opt === "Other") {
-                this.form.title = ["Other"]; // Chỉ giữ lại 'Other'
-            } else {
-                // Nếu 'Other' đang được chọn, thì bỏ nó ra
-                this.form.title = this.form.title.filter(
-                    (item) => item !== "Other"
-                );
-            }
-        },
     };
 };

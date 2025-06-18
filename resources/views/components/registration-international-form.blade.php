@@ -10,11 +10,11 @@
       <div class="w-full grid grid-cols-2 md:grid-cols-12 gap-3">
         <template x-for="opt in ['Prof.', 'Dr.', 'Mr.', 'Ms.', 'Other']" :key="opt">
           <label class="inline-flex items-center">
-            <input type="radio" :value="opt" x-model="form.title" class="form-checkbox" x-on:change="handleExclusiveSelection(opt)" />
+            <input type="radio" :value="opt" x-model="form.title" class="form-checkbox" />
             <span class="ml-2" x-text="opt"></span>
           </label>
         </template>
-        <template x-if="form.title.includes('Other')">
+        <template x-if="form.title == 'Other'">
           <div class="col-span-7 flex items-center gap-3">
             <label for="other_title" class="text-sm font-medium text-gray-700 whitespace-nowrap">Please specify <span class="text-red-600">*</span>:</label>
             <input id="other_title" x-model="form.other_title" name="other_title" class="border-[.5px] border-gray-300 outline-none px-3 py-1 rounded w-[100px]" />
