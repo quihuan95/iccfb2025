@@ -4,15 +4,19 @@ use App\Helpers\RegistrationHelper;
 use App\Http\Controllers\RegistrationController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [RegistrationController::class, 'get_view_international']);
+Route::get('/', function () {
+    return view('pages.home');
+});
 
-Route::get('/registration-international', [RegistrationController::class, 'get_view_international']);
+// Route::get('/', [RegistrationController::class, 'get_view_international']);
+
+Route::get('/registration-international', [RegistrationController::class, 'get_view_international'])->name('registration.form.international');
 
 Route::post('/registration-international-submit', [RegistrationController::class, 'registration_international_submit']);
 
 Route::post('/registration-vietnamese-submit', [RegistrationController::class, 'registration_vietnamese_submit']);
 
-Route::get('/registration-vietnamese', [RegistrationController::class, 'get_view_vietnamese']);
+Route::get('/registration-vietnamese', [RegistrationController::class, 'get_view_vietnamese'])->name('registration.form.vietnamese');
 
 Route::get('/registration/payment-response', [RegistrationController::class, 'payment_response']);
 
