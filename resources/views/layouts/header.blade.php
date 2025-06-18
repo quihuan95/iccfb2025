@@ -1,6 +1,6 @@
 <div class="flex flex-col items-center justify-center text-center py-8 bg-white border-b border-dashed border-gray-300">
   {{-- Logo --}}
-  <img src="{{ asset('images/HCMUT_official_logo.png') }}" alt="ICCFB Logo" class="w-24 h-auto mb-4">
+  <img src="https://iccfb2025.websitehoinghi.com/storage/images/HCMUT_official_logo.png" alt="ICCFB Logo" class="w-24 h-auto mb-4">
   {{-- <== Thay link logo tại đây nếu cần --}}
 
   {{-- Conference Title --}}
