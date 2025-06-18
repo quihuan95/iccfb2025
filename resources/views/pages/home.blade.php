@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="min-h-screen flex flex-col items-center justify-center bg-white px-4">
+  <div class="flex flex-col items-center justify-center px-4 py-20">
     <h2 class="text-center text-gray-800 text-sm font-medium mb-8">Please choose your category:</h2>
 
     <div class="flex gap-12">
