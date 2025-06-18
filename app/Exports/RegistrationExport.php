@@ -43,7 +43,7 @@ class RegistrationExport implements FromCollection, WithStyles, WithHeadings
                 $record->fullname,
                 $record->position,
                 $record->organization,
-                $record->billing_address,
+                $record->address,
                 $record->display_country,
                 $record->phone,
                 $record->email,

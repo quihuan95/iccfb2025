@@ -24,7 +24,7 @@ class Registration extends Model
         'display_conference',
         'display_title',
         'display_dietary_requirement',
-        'billing_address',
+        'address',
         'total_fee',
         'paper_title',
         'payment_method',
