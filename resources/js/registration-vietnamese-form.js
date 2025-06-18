@@ -1,7 +1,7 @@
 import * as yup from "yup";
 
 const registrationSchema = yup.object({
-    title: yup.array().min(1, "Please select a title"),
+    title: yup.string().required("Title is required"),
     fullname: yup.string().required("Full name is required"),
     position: yup.string().nullable(),
     organization: yup.string().required("Organization is required"),
@@ -21,7 +21,7 @@ const registrationSchema = yup.object({
         otherwise: (schema) => schema.nullable(),
     }),
     other_title: yup.string().when("title", {
-        is: (titles) => titles.includes("Other"),
+        is: (title) => title == "Other",
         then: (schema) => schema.required("Please specify your title"),
         otherwise: (schema) => schema.nullable(),
     }),
@@ -41,7 +41,7 @@ const registrationSchema = yup.object({
 window.registrationForm = function () {
     return {
         form: {
-            title: [],
+            title: "",
             other_title: "",
             fullname: "",
             position: "",

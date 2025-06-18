@@ -10,7 +10,7 @@
       <div class="w-full grid grid-cols-2 md:grid-cols-12 gap-3">
         <template x-for="opt in ['Prof.', 'Dr.', 'Mr.', 'Ms.', 'Other']" :key="opt">
           <label class="inline-flex items-center">
-            <input type="checkbox" :value="opt" x-model="form.title" class="form-checkbox" x-on:change="handleExclusiveSelection(opt)" />
+            <input type="radio" :value="opt" x-model="form.title" class="form-checkbox" x-on:change="handleExclusiveSelection(opt)" />
             <span class="ml-2" x-text="opt"></span>
           </label>
         </template>
@@ -125,7 +125,7 @@
             <input type="radio" id="conf_iop" x-model="form.conference_type" value="ABSTRACT_PRESENT" class="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500" />
           </td>
           <td class="border border-gray-300 px-4 py-3">Abstract only and presentation</td>
-          <td class="border border-gray-300 px-4 py-3 font-medium">US$ 300.00</td>
+          <td class="border border-gray-300 px-4 py-3 font-medium">US$ 200.00</td>
         </tr>
         <tr class="hover:bg-gray-50">
           <td class="border border-gray-300 px-4 py-3 text-center">
@@ -160,7 +160,7 @@
       <div class="flex-1 flex gap-x-6 gap-y-2 flex-wrap items-center">
         <label class="inline-flex items-center">
           <input type="radio" name="payment_method" value="online" x-model="form.payment_method" class="form-radio" />
-          <span class="ml-2">ONLINE PAYMENT (via internet with Visa, MasterCard, JCB, American Express)</span>
+          <span class="ml-2">ONLINE PAYMENT (6% transaction fee will be applied)</span>
         </label>
       </div>
     </div>
@@ -170,7 +170,7 @@
       <div class="flex-1 flex gap-x-6 gap-y-2 flex-wrap items-center">
         <label class="inline-flex items-center">
           <input type="radio" name="payment_method" value="wire" x-model="form.payment_method" class="form-radio" />
-          <span class="ml-2">WIRE TRANSFER</span>
+          <span class="ml-2">WIRE TRANSFER (Bank charges must be paid at your expense)</span>
         </label>
       </div>
     </div>

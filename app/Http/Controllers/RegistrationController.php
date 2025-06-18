@@ -34,7 +34,7 @@ class RegistrationController extends Controller
     {
         try {
             $data = $request->validate([
-                'title' => 'required|array|min:1',
+                'title' => 'required|string',
                 'other_title' => 'nullable|string',
                 'fullname' => 'required|string|max:255',
                 'position' => 'nullable|string|max:255',
@@ -88,7 +88,7 @@ class RegistrationController extends Controller
     {
         try {
             $data = $request->validate([
-                'title' => 'required|array|min:1',
+                'title' => 'required|string',
                 'other_title' => 'nullable|string',
                 'fullname' => 'required|string|max:255',
                 'position' => 'nullable|string|max:255',

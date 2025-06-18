@@ -32,10 +32,6 @@ class Registration extends Model
         'register_type', // ✅ Thêm dòng này
     ];
 
-    protected $casts = [
-        'title' => 'array'
-    ];
-
     public static function getNextRegistrationCode($type = 'international')
     {
         $prefix = $type === 'vietnamese' ? 'ICCFB2025-VN' : 'ICCFB2025';
@@ -76,11 +72,11 @@ class Registration extends Model
             }
 
             // Xử lý display_title
-            if (is_array($registration->title)) {
-                if (in_array('other', $registration->title)) {
+            if (!empty($registration->title)) {
+                if ($registration->title == 'Other') {
                     $registration->display_title = $registration->other_title;
                 } else {
-                    $registration->display_title = implode('.', $registration->title);
+                    $registration->display_title = $registration->title;
                 }
             }
 

@@ -17,7 +17,7 @@
   {{-- Livewire Scripts nên để ở cuối body --}}
   <div>
     <div>
-      {{-- @include('layouts.header') --}}
+      @include('layouts.header')
     </div>
 
     <div class="w-full bg-white">

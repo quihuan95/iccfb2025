@@ -10,7 +10,7 @@
       <div class="w-full grid grid-cols-2 md:grid-cols-12 gap-3">
         <template x-for="opt in ['Prof.', 'Dr.', 'Mr.', 'Ms.', 'Other']" :key="opt">
           <label class="inline-flex items-center">
-            <input type="checkbox" :value="opt" x-model="form.title" class="form-checkbox" x-on:change="handleExclusiveSelection(opt)" />
+            <input type="radio" :value="opt" x-model="form.title" class="form-checkbox" x-on:change="handleExclusiveSelection(opt)" />
             <span class="ml-2" x-text="opt"></span>
           </label>
         </template>
@@ -157,7 +157,7 @@
       <div class="flex-1 flex gap-x-6 gap-y-2 flex-wrap items-center">
         <label class="inline-flex items-center">
           <input type="radio" name="payment_method" value="online" x-model="form.payment_method" class="form-radio" />
-          <span class="ml-2">ONLINE PAYMENT (via internet with Visa, MasterCard, JCB, American Express)</span>
+          <span class="ml-2">ONLINE PAYMENT (6% transaction fee will be applied)</span>
         </label>
       </div>
     </div>
@@ -167,7 +167,7 @@
       <div class="flex-1 flex gap-x-6 gap-y-2 flex-wrap items-center">
         <label class="inline-flex items-center">
           <input type="radio" name="payment_method" value="wire" x-model="form.payment_method" class="form-radio" />
-          <span class="ml-2">WIRE TRANSFER</span>
+          <span class="ml-2">WIRE TRANSFER (Bank charges must be paid at your expense)</span>
         </label>
       </div>
     </div>
