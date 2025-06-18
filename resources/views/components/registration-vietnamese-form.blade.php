@@ -30,11 +30,11 @@
     </div>
 
     <!-- Other fields -->
-    <template x-for="field in ['fullname', 'position', 'organization', 'billing_address', 'country', 'phone', 'email']" :key="field">
+    <template x-for="field in ['fullname', 'position', 'organization', 'address', 'country', 'phone', 'email']" :key="field">
       <div class="flex items-start gap-x-6 mb-4">
         <label :for="field" class="w-[250px] font-medium text-gray-700 pt-2 capitalize">
           <span x-text="field.replace('_', ' ')"></span>
-          <span x-show="['fullname', 'organization', 'billing_address', 'country', 'phone', 'email'].includes(field)" class="text-red-600">*</span>
+          <span x-show="['fullname', 'organization', 'address', 'country', 'phone', 'email'].includes(field)" class="text-red-600">*</span>
         </label>
         <div class="w-full">
           <!-- Nếu là country thì dùng select -->

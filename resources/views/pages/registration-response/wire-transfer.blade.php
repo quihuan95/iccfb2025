@@ -2,13 +2,6 @@
 
 @section('content')
   <div class="max-w-2xl mx-auto py-12 px-6 text-gray-800 font-sans space-y-4">
-    <h3 class="text-xl font-semibold flex items-center text-blue-700">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a4 4 0 00-8 0v2M5 13h14l1 9H4l1-9z" />
-      </svg>
-      WIRE TRANSFER
-    </h3>
-
     <p>Thank you for registering for the <strong>7<sup>th</sup> International Conference on Chemical Engineering, Food and Bio Technology (ICCFB 2025)</strong>.</p>
 
     <p>
@@ -36,7 +29,7 @@
       Please indicate, "<strong> {{ $registration['fullname'] ?? 'Full Name' }} – {{ $registration['registration_code'] ?? 'Registration ID' }} paid for ICCFB 2025</strong>" as a
       reference and send proof of bank transfer to
       <a href="mailto:iccfb@hcmut.edu.vn" class="text-blue-600 underline">iccfb@hcmut.edu.vn</a> &
-      <a href="mailto:dh.qtl@hoabinh-group.com" class="text-blue-600 underline">dh.qtl@hoabinh-group.com</a>.
+      <a href="mailto:dh.qt1@hoabinh-group.com" class="text-blue-600 underline">dh.qt1@hoabinh-group.com</a>.
     </p>
   </div>
 @endsection

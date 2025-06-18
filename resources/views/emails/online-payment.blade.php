@@ -13,8 +13,8 @@
     <strong>Venue:</strong> SAIGON PRINCE HOTEL, 59–73 Nguyen Hue Boulevard, District 1, Ho Chi Minh City, Vietnam
   </p>
 
-  <h3 style="margin-top: 30px;">Registration Details:</h3>
-  <p>
+  <h3 style="margin-top: 15px; margin-bottom: 5px;">Registration Details:</h3>
+  <p style="margin-top: 5px; margin-bottom: 5px;">
     <strong>Registration No.:</strong> {{ $registration['registration_code'] }}<br>
     <strong>Full name:</strong> {{ $registration['display_title'] }} {{ $registration['fullname'] }}<br>
     <strong>Organization:</strong> {{ $registration['organization'] }}<br>
@@ -23,8 +23,8 @@
     <strong>Dietary Requirements:</strong> {{ $registration['display_dietary_requirement'] }}
   </p>
 
-  <h3>Conference Fee:</h3>
-  <p>
+  <h3 style="margin-top: 15px; margin-bottom: 5px;">Conference Fee:</h3>
+  <p style="margin-top: 5px; margin-bottom: 5px;">
     <strong>Conference type:</strong> {{ $registration['display_conference']['label'] ?? 'N/A' }}<br>
     <strong>Total fee:</strong> {{ $registration['display_conference']['currency'] ?? 'USD' }} {{ number_format($registration['display_conference']['fee'], 2) }}<br>
     <strong>Payment type:</strong> Online Payment<br>
@@ -34,7 +34,7 @@
   <p>
     If you need any further assistance, please feel free to contact us at
     <a href="mailto:iccfb@hcmut.edu.vn">iccfb@hcmut.edu.vn</a> &
-    <a href="mailto:dh.qtl@hoabinh-group.com">dh.qtl@hoabinh-group.com</a>.
+    <a href="mailto:dh.qt1@hoabinh-group.com">dh.qt1@hoabinh-group.com</a>.
   </p>
 
   <p>We look forward to seeing you in Ho Chi Minh City!</p>

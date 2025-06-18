@@ -82,6 +82,8 @@ class InternationalRegistrationResource extends Resource
 
                 Tables\Columns\TextColumn::make('organization')->label('Organization')->searchable(),
 
+                Tables\Columns\TextColumn::make('address')->label('Address'),
+
                 Tables\Columns\TextColumn::make('display_country')->label('Country'),
 
                 Tables\Columns\TextColumn::make('phone')->label('Phone'),

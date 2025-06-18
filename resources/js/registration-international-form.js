@@ -5,7 +5,7 @@ const registrationSchema = yup.object({
     fullname: yup.string().required("Full name is required"),
     position: yup.string().nullable(),
     organization: yup.string().required("Organization is required"),
-    billing_address: yup.string().required("Billing address is required"),
+    address: yup.string().required("Billing address is required"),
     country: yup.string().required("Country is required"),
     phone: yup.string().required("Phone number is required"),
     email: yup
@@ -46,7 +46,7 @@ window.registrationForm = function () {
             fullname: "",
             position: "",
             organization: "",
-            billing_address: "",
+            address: "",
             country: "",
             phone: "",
             email: "",

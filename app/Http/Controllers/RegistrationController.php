@@ -39,7 +39,7 @@ class RegistrationController extends Controller
                 'fullname' => 'required|string|max:255',
                 'position' => 'nullable|string|max:255',
                 'organization' => 'required|string|max:255',
-                'billing_address' => 'required|string|max:255',
+                'address' => 'required|string|max:255',
                 'other_dietary_requirement' => 'nullable|string|max:255',
                 'country' => 'required|string|max:255',
                 'phone' => 'required|string|max:20',
@@ -93,7 +93,7 @@ class RegistrationController extends Controller
                 'fullname' => 'required|string|max:255',
                 'position' => 'nullable|string|max:255',
                 'organization' => 'required|string|max:255',
-                'billing_address' => 'required|string|max:255',
+                'address' => 'required|string|max:255',
                 'other_dietary_requirement' => 'nullable|string|max:255',
                 'country' => 'required|string|max:255',
                 'phone' => 'required|string|max:20',
@@ -107,8 +107,8 @@ class RegistrationController extends Controller
             $data['register_type'] = 'vietnamese';
             // Giả sử $this->registration là model hoặc service
             $registration = $this->registrationServices->create($data);
-            $this->registrationServices->sendMail($registration);
             if ($registration->payment_method == 'online') {
+                $this->registrationServices->sendMail($registration);
                 $paymentUrl = $this->registrationServices->makeOnepayUrl($registration->toArray());
                 return response()->json([
                     'status' => 'redirect',
