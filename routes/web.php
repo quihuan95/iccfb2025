@@ -26,3 +26,7 @@ Route::get('/get-list-countries', function () {
     $countries = RegistrationHelper::getListCountry();
     return response()->json($countries);
 });
+
+Route::get('/registration/response/success', [RegistrationController::class, 'responseSuccess'])->name('registration.response.success');
+Route::get('/registration/response/cancelled', [RegistrationController::class, 'responseCancelled'])->name('registration.response.cancelled');
+Route::get('/registration/response/failed', [RegistrationController::class, 'responseFailed'])->name('registration.response.failed');

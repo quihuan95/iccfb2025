@@ -176,13 +176,13 @@ class RegistrationController extends Controller
             $this->registrationServices->sendMail($registration);
         }
 
-        $view = match ($vpc_TxnResponseCode) {
-            '0' => 'pages.registration-response.success',
-            '99' => 'pages.registration-response.cancelled',
-            default => 'pages.registration-response.failed',
+        $route = match ($vpc_TxnResponseCode) {
+            '0' => 'registration.response.success',
+            '99' => 'registration.response.cancelled',
+            default => 'registration.response.failed',
         };
 
-        return view($view, compact('data'));
+        return redirect()->route($route);
     }
 
     public function wire_transfer_response(Request $request)
@@ -190,5 +190,20 @@ class RegistrationController extends Controller
         $registration = $request->all();
         $registration['display_conference'] = json_decode($registration['display_conference']);
         return view('pages.registration-response.wire-transfer', compact('registration'));
+    }
+
+    public function responseSuccess()
+    {
+        return view('pages.registration-response.success');
+    }
+
+    public function responseCancelled()
+    {
+        return view('pages.registration-response.success');
+    }
+
+    public function responseFailed()
+    {
+        return view('pages.registration-response.success');
     }
 }
