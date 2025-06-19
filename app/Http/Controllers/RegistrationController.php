@@ -150,7 +150,6 @@ class RegistrationController extends Controller
 
         $lastSent = session()->get('mail_sent_' . $id);
         $now = now();
-        $diff = $now->diffInSeconds($lastSent);
         $canSendMail = true;
         if ($lastSent) {
             $diff = $now->diffInSeconds($lastSent);
