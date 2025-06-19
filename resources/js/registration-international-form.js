@@ -97,11 +97,62 @@ window.registrationForm = function () {
                 const result = await response.json();
 
                 if (result.status === "redirect" && result.url) {
+                    this.form = {
+                        title: "",
+                        other_title: "",
+                        fullname: "",
+                        position: "",
+                        organization: "",
+                        address: "",
+                        country: "",
+                        phone: "",
+                        email: "",
+                        dietary_requirement: "",
+                        other_dietary_requirement: "",
+                        conference_type: "",
+                        paper_title: "",
+                        payment_method: "",
+                        register_type: "international",
+                    };
                     window.location.href = result.url;
                 } else {
                     console.log("Đăng ký thành công");
+                    this.form = {
+                        title: "",
+                        other_title: "",
+                        fullname: "",
+                        position: "",
+                        organization: "",
+                        address: "",
+                        country: "",
+                        phone: "",
+                        email: "",
+                        dietary_requirement: "",
+                        other_dietary_requirement: "",
+                        conference_type: "",
+                        paper_title: "",
+                        payment_method: "",
+                        register_type: "international",
+                    };
                 }
                 if (response.ok) {
+                    this.form = {
+                        title: "",
+                        other_title: "",
+                        fullname: "",
+                        position: "",
+                        organization: "",
+                        address: "",
+                        country: "",
+                        phone: "",
+                        email: "",
+                        dietary_requirement: "",
+                        other_dietary_requirement: "",
+                        conference_type: "",
+                        paper_title: "",
+                        payment_method: "",
+                        register_type: "international",
+                    };
                     alert("Registration successful!");
                 }
             } catch (err) {
