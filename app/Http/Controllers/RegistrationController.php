@@ -105,7 +105,6 @@ class RegistrationController extends Controller
                 'register_type' => 'required|string',
             ]);
             $data['register_type'] = 'vietnamese';
-            // Giả sử $this->registration là model hoặc service
             $registration = $this->registrationServices->create($data);
             if ($registration->payment_method == 'online') {
                 $this->registrationServices->sendMail($registration);
