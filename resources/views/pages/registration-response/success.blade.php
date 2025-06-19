@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="max-w-[1000px] mx-auto text-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-[1200px] mx-auto text-center py-12 px-4 sm:px-6 lg:px-8">
     <p class="mt-4 text-lg font-bold text-gray-800">THANK YOU, YOUR PAYMENT HAS BEEN PROCESSED SUCCESSFULLY</p>
     <p class="mt-2 text-gray-600">
       You will be receiving an email shortly to confirm the transaction.<br>

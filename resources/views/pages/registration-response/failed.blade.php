@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="max-w-[1000px]  mx-auto text-center py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-[1200px]  mx-auto text-center py-12 px-4 sm:px-6 lg:px-8">
     <p class="mt-4 text-lg font-bold text-gray-800">UNFORTUNATELY, YOUR PAYMENT HAS FAILED</p>
     <p class="mt-2 text-gray-600">
       Your information was submitted to ICCFB 2025’s Organizer.

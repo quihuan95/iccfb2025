@@ -53,8 +53,8 @@ class RegistrationController extends Controller
             $data['register_type'] = 'international';
             // Giả sử $this->registration là model hoặc service
             $registration = $this->registrationServices->create($data);
-            $this->registrationServices->sendMail($registration);
             if ($registration->payment_method == 'online') {
+                $this->registrationServices->sendMail($registration);
                 $paymentUrl = $this->registrationServices->makeOnepayUrl($registration->toArray());
                 return response()->json([
                     'status' => 'redirect',
@@ -147,6 +147,18 @@ class RegistrationController extends Controller
         }
         $vpc_TxnResponseCode = $data['vpc_TxnResponseCode'] ?? 'null';
         $id = $data['id'] ?? null;
+
+        $lastSent = session()->get('mail_sent_' . $id);
+        $now = now();
+        $diff = $now->diffInSeconds($lastSent);
+        $canSendMail = true;
+        if ($lastSent) {
+            $diff = $now->diffInSeconds($lastSent);
+            if ($diff < 120) {
+                $canSendMail = false;
+            }
+        }
+
         $registration = Registration::where('id', $id)->first();
 
         switch ($vpc_TxnResponseCode) {
@@ -154,19 +166,28 @@ class RegistrationController extends Controller
                 $registration->payment_status = 'success';
                 $registration->total_fee = $amount;
                 $registration->save();
-                $this->registrationServices->sendMail($registration);
+                if ($canSendMail) {
+                    $this->registrationServices->sendMail($registration);
+                    session()->put('mail_sent_' . $id, $now);
+                }
                 return view('pages.registration-response.success', compact('data'));
             case '99':
                 $registration->payment_status = 'cancelled';
                 $registration->total_fee = $amount;
                 $registration->save();
-                $this->registrationServices->sendMail($registration);
+                if ($canSendMail) {
+                    $this->registrationServices->sendMail($registration);
+                    session()->put('mail_sent_' . $id, $now);
+                }
                 return view('pages.registration-response.cancelled', compact('data'));
             default:
                 $registration->payment_status = 'failed';
                 $registration->total_fee = $amount;
                 $registration->save();
-                $this->registrationServices->sendMail($registration);
+                if ($canSendMail) {
+                    $this->registrationServices->sendMail($registration);
+                    session()->put('mail_sent_' . $id, $now);
+                }
                 return view('pages.registration-response.failed', compact('data'));
         }
     }

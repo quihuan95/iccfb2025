@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="max-w-2xl mx-auto py-12 px-6 text-gray-800 font-sans space-y-4">
+  <div class="max-w-[1200px] mx-auto py-12 px-6 text-gray-800 font-sans space-y-4">
     <p>Thank you for registering for the <strong>7<sup>th</sup> International Conference on Chemical Engineering, Food and Bio Technology (ICCFB 2025)</strong>.</p>
 
     <p>
