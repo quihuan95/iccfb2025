@@ -155,7 +155,7 @@ class RegistrationController extends Controller
 
         // Chặn gửi mail nếu đã gửi trong 2 phút qua
         $cacheKey = 'mail_sent_' . $id;
-        $canSendMail = Cache::add($cacheKey, true, now()->addMinutes(2)); // chỉ add nếu chưa có
+        $canSendMail = Cache::add($cacheKey, true, now()->addMinutes(24)); // chỉ add nếu chưa có
 
         switch ($vpc_TxnResponseCode) {
             case '0':
