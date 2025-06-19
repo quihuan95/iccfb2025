@@ -7,6 +7,7 @@ use App\Services\RegistrationServices;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Facades\Cache;
 use Exception;
 
 class RegistrationController extends Controller
@@ -140,55 +141,48 @@ class RegistrationController extends Controller
     public function payment_response(Request $request)
     {
         $data = $request->all();
-        $amount = $formatted =  number_format($data['vpc_Amount'] / 100, 2, '.', ',');
+        $id = $data['id'] ?? null;
+
+        $amount = number_format($data['vpc_Amount'] / 100, 2, '.', ',');
         if ($data['register_type'] == 'vietnamese') {
             $amount = (int) $data['vpc_Amount'] / 100;
             $amount = number_format($amount, 2, '.', '');
         }
-        $vpc_TxnResponseCode = $data['vpc_TxnResponseCode'] ?? 'null';
-        $id = $data['id'] ?? null;
 
-        $lastSent = session()->get('mail_sent_' . $id);
-        $now = now();
-        $canSendMail = true;
-        if ($lastSent) {
-            $diff = $now->diffInSeconds($lastSent);
-            if ($diff < 120) {
-                $canSendMail = false;
-            }
-        }
+        $vpc_TxnResponseCode = $data['vpc_TxnResponseCode'] ?? 'null';
 
         $registration = Registration::where('id', $id)->first();
+
+        // Chặn gửi mail nếu đã gửi trong 2 phút qua
+        $cacheKey = 'mail_sent_' . $id;
+        $canSendMail = Cache::add($cacheKey, true, now()->addMinutes(2)); // chỉ add nếu chưa có
 
         switch ($vpc_TxnResponseCode) {
             case '0':
                 $registration->payment_status = 'success';
-                $registration->total_fee = $amount;
-                $registration->save();
-                if ($canSendMail) {
-                    $this->registrationServices->sendMail($registration);
-                    session()->put('mail_sent_' . $id, $now);
-                }
-                return view('pages.registration-response.success', compact('data'));
+                break;
             case '99':
                 $registration->payment_status = 'cancelled';
-                $registration->total_fee = $amount;
-                $registration->save();
-                if ($canSendMail) {
-                    $this->registrationServices->sendMail($registration);
-                    session()->put('mail_sent_' . $id, $now);
-                }
-                return view('pages.registration-response.cancelled', compact('data'));
+                break;
             default:
                 $registration->payment_status = 'failed';
-                $registration->total_fee = $amount;
-                $registration->save();
-                if ($canSendMail) {
-                    $this->registrationServices->sendMail($registration);
-                    session()->put('mail_sent_' . $id, $now);
-                }
-                return view('pages.registration-response.failed', compact('data'));
+                break;
         }
+
+        $registration->total_fee = $amount;
+        $registration->save();
+
+        if ($canSendMail) {
+            $this->registrationServices->sendMail($registration);
+        }
+
+        $view = match ($vpc_TxnResponseCode) {
+            '0' => 'pages.registration-response.success',
+            '99' => 'pages.registration-response.cancelled',
+            default => 'pages.registration-response.failed',
+        };
+
+        return view($view, compact('data'));
     }
 
     public function wire_transfer_response(Request $request)
