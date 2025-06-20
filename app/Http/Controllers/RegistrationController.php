@@ -151,6 +151,8 @@ class RegistrationController extends Controller
 
         $vpc_TxnResponseCode = $data['vpc_TxnResponseCode'] ?? 'null';
 
+        dd($data);
+
         $registration = Registration::where('id', $id)->first();
 
         // Chặn gửi mail nếu đã gửi trong 2 phút qua
@@ -199,11 +201,11 @@ class RegistrationController extends Controller
 
     public function responseCancelled()
     {
-        return view('pages.registration-response.success');
+        return view('pages.registration-response.cancelled');
     }
 
     public function responseFailed()
     {
-        return view('pages.registration-response.success');
+        return view('pages.registration-response.failed');
     }
 }
