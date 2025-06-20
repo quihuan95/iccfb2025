@@ -24,14 +24,24 @@ class RegistrationServices
   public function sendMail($registration)
   {
     Mail::to($registration->email)
-      // ->cc(['vicky@hoabinhtourist.com']) // nếu cần
+      ->cc([
+        'iccfb@hcmut.edu.vn',
+        'vicky@hoabinhtourist.com',
+        'dh.qt1@hoabinh-group.com',
+        'dh.qt2@hoabinh-group.com',
+      ])
       ->send(new RegistrationConfirmed($registration->toArray()));
   }
 
   public function sendMailWireTransfer($registration)
   {
     Mail::to($registration->email)
-      // ->cc(['vicky@hoabinhtourist.com']) // nếu cần
+      ->cc([
+        'iccfb@hcmut.edu.vn',
+        'vicky@hoabinhtourist.com',
+        'dh.qt1@hoabinh-group.com',
+        'dh.qt2@hoabinh-group.com',
+      ])
       ->send(new RegistrationWireTransfer($registration->toArray()));
   }
 
