@@ -63,6 +63,8 @@ class RegistrationController extends Controller
                 ]);
             }
             if ($registration->payment_method == 'wire') {
+                $amount = json_decode($registration['display_conference'])->fee;
+                $registration->update(['total_fee' => $amount]);
                 $this->registrationServices->sendMailWireTransfer($registration);
                 $queryString = http_build_query($registration->toArray());
                 $returnUrl = config('app.url') . '/registration/wire-transfer-response?' . $queryString;
