@@ -100,7 +100,7 @@ window.registrationForm = function () {
                         position: "",
                         organization: "",
                         address: "",
-                        country: "",
+                        country: "VN",
                         phone: "",
                         email: "",
                         dietary_requirement: "",
@@ -108,7 +108,7 @@ window.registrationForm = function () {
                         conference_type: "",
                         paper_title: "",
                         payment_method: "",
-                        register_type: "international",
+                        register_type: "vietnamese",
                     };
                     window.location.href = result.url;
                 } else {
@@ -120,7 +120,7 @@ window.registrationForm = function () {
                         position: "",
                         organization: "",
                         address: "",
-                        country: "",
+                        country: "VN",
                         phone: "",
                         email: "",
                         dietary_requirement: "",
@@ -128,7 +128,7 @@ window.registrationForm = function () {
                         conference_type: "",
                         paper_title: "",
                         payment_method: "",
-                        register_type: "international",
+                        register_type: "vietnamese",
                     };
                 }
                 if (response.ok) {
@@ -147,7 +147,7 @@ window.registrationForm = function () {
                         conference_type: "",
                         paper_title: "",
                         payment_method: "",
-                        register_type: "international",
+                        register_type: "vietnamese",
                     };
                     alert("Registration successful!");
                 }

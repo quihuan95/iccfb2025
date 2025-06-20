@@ -13,7 +13,10 @@
 
     <p>
       Please transfer the conference fee -
-      <strong class="text-green-600">{{ $registration['display_conference']->currency ?? 'USD' }} {{ $registration['display_conference']->fee ?? 'XXX.00' }}</strong>
+      <strong
+        class="text-green-600">{{ ($registration['display_conference']->currency ?? 'USD') === 'VND'
+            ? 'VND ' . number_format($registration['display_conference']->fee, 0, ',', '.')
+            : ($registration['display_conference']->currency ?? 'USD') . ' ' . number_format($registration['display_conference']->fee, 2) }}</strong>
       to the following bank:
     </p>
 
