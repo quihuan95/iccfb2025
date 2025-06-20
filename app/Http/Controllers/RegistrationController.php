@@ -151,8 +151,6 @@ class RegistrationController extends Controller
 
         $vpc_TxnResponseCode = $data['vpc_TxnResponseCode'] ?? 'null';
 
-        dd($data);
-
         $registration = Registration::where('id', $id)->first();
 
         // Chặn gửi mail nếu đã gửi trong 2 phút qua

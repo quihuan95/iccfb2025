@@ -26,7 +26,10 @@
   <h3 style="margin-top: 15px; margin-bottom: 5px;">Conference Fee:</h3>
   <p style="margin-top: 5px; margin-bottom: 5px;">
     <strong>Conference type:</strong> {{ $registration['display_conference']['label'] ?? 'N/A' }}<br>
-    <strong>Total fee:</strong> {{ $registration['display_conference']['currency'] ?? 'USD' }} {{ number_format($registration['display_conference']['fee'], 2) }}<br>
+    <strong>Total fee:</strong>
+    {{ ($registration['display_conference']['currency'] ?? 'USD') === 'VND'
+        ? 'VND ' . number_format($registration['display_conference']['fee'], 0, ',', '.')
+        : ($registration['display_conference']['currency'] ?? 'USD') . ' ' . number_format($registration['display_conference']['fee'], 2) }}<br>
     <strong>Payment type:</strong> Online Payment<br>
     <strong>Payment status:</strong> {{ ucfirst($registration['payment_status'] ?? 'Pending') }}
   </p>
