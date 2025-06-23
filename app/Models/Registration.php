@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Helpers\RegistrationHelper;
+use Illuminate\Support\Facades\DB;
 
 class Registration extends Model
 {
@@ -37,17 +38,22 @@ class Registration extends Model
     {
         $prefix = $type === 'vietnamese' ? 'ICCFB2025-VN' : 'ICCFB2025';
 
-        $latest = self::where('registration_code', 'like', $prefix . '%')
-            ->orderByDesc('id')
-            ->first();
+        return DB::transaction(function () use ($prefix) {
+            // Khóa bản ghi cuối cùng để tránh race condition
+            $latest = DB::table('registrations')
+                ->where('registration_code', 'like', $prefix . '%')
+                ->orderByDesc('id')
+                ->lockForUpdate()
+                ->first();
 
-        $nextNumber = 1;
+            $nextNumber = 1;
 
-        if ($latest && preg_match('/(\d+)$/', $latest->registration_code, $matches)) {
-            $nextNumber = (int)$matches[1] + 1;
-        }
+            if ($latest && preg_match('/(\d+)$/', $latest->registration_code, $matches)) {
+                $nextNumber = (int)$matches[1] + 1;
+            }
 
-        return sprintf('%s-%04d', $prefix, $nextNumber);
+            return sprintf('%s-%04d', $prefix, $nextNumber);
+        });
     }
 
     public static function boot()
