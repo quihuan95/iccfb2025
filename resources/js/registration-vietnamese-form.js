@@ -26,12 +26,19 @@ const registrationSchema = yup.object({
         otherwise: (schema) => schema.nullable(),
     }),
     conference_type: yup.string().required("Please select a conference type"),
+    paper_id: yup.string().when("conference_type", {
+        is: (type) =>
+            type == "IOP_SCOPUS" ||
+            type == "Q3_JOURNAL" ||
+            type == "ABSTRACT_PRESENT",
+        then: (schema) => schema.required("Paper ID is required"),
+        otherwise: (schema) => schema.nullable(),
+    }),
     paper_title: yup.string().when("conference_type", {
         is: (type) =>
-            type == "attendance" ||
-            type == "abstract" ||
-            type == "iop" ||
-            type == "stdj",
+            type == "IOP_SCOPUS" ||
+            type == "Q3_JOURNAL" ||
+            type == "ABSTRACT_PRESENT",
         then: (schema) => schema.required("Paper title is required"),
         otherwise: (schema) => schema.nullable(),
     }),
@@ -53,6 +60,7 @@ window.registrationForm = function () {
             dietary_requirement: "",
             other_dietary_requirement: "",
             conference_type: "",
+            paper_id: "",
             paper_title: "",
             payment_method: "",
             register_type: "vietnamese",
@@ -106,6 +114,7 @@ window.registrationForm = function () {
                         dietary_requirement: "",
                         other_dietary_requirement: "",
                         conference_type: "",
+                        paper_id: "",
                         paper_title: "",
                         payment_method: "",
                         register_type: "vietnamese",
@@ -126,6 +135,7 @@ window.registrationForm = function () {
                         dietary_requirement: "",
                         other_dietary_requirement: "",
                         conference_type: "",
+                        paper_id: "",
                         paper_title: "",
                         payment_method: "",
                         register_type: "vietnamese",
@@ -145,6 +155,7 @@ window.registrationForm = function () {
                         dietary_requirement: "",
                         other_dietary_requirement: "",
                         conference_type: "",
+                        paper_id: "",
                         paper_title: "",
                         payment_method: "",
                         register_type: "vietnamese",

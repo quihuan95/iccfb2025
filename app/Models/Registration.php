@@ -26,6 +26,7 @@ class Registration extends Model
         'display_dietary_requirement',
         'address',
         'total_fee',
+        'paper_id',
         'paper_title',
         'payment_method',
         'payment_status',

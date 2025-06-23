@@ -140,13 +140,25 @@
 
   <!-- Paper title -->
   <template x-if="['IOP_SCOPUS', 'Q3_JOURNAL', 'ABSTRACT_PRESENT'].includes(form.conference_type)">
-    <div class="flex items-start gap-x-6">
-      <label class="w-[250px] font-medium text-gray-700 pt-2 capitalize">Paper title <span class="text-red-600">*</span>:</label>
-      <div class="flex-1">
-        <input id="paper_title" x-model="form.paper_title" name="paper_title" class="w-full border-[.5px] border-gray-300 outline-none px-3 py-1 rounded" type="text" />
-        <template x-if="errors['paper_title']">
-          <p class="text-sm text-red-500" x-text="errors['paper_title']"></p>
-        </template>
+    <div>
+      <div class="flex items-start gap-x-6">
+        <label class="w-[250px] font-medium text-gray-700 pt-2 capitalize">Paper ID <span class="text-red-600">*</span>:</label>
+        <div class="flex-1">
+          <input id="paper_id" x-model="form.paper_id" name="paper_id" class="w-full border-[.5px] border-gray-300 outline-none px-3 py-1 rounded" type="text" />
+          <template x-if="errors['paper_id']">
+            <p class="text-sm text-red-500" x-text="errors['paper_id']"></p>
+          </template>
+        </div>
+      </div>
+
+      <div class="flex items-start gap-x-6 mt-4">
+        <label class="w-[250px] font-medium text-gray-700 pt-2 capitalize">Paper title <span class="text-red-600">*</span>:</label>
+        <div class="flex-1">
+          <input id="paper_title" x-model="form.paper_title" name="paper_title" class="w-full border-[.5px] border-gray-300 outline-none px-3 py-1 rounded" type="text" />
+          <template x-if="errors['paper_title']">
+            <p class="text-sm text-red-500" x-text="errors['paper_title']"></p>
+          </template>
+        </div>
       </div>
     </div>
   </template>
@@ -154,7 +166,9 @@
   <!-- PAYMENT METHOD -->
   <div class="space-y-8">
     <div class="text-xl font-bold text-blue-800 border-b-2 border-blue-800 pb-2">PAYMENT METHOD</div>
-
+    <template x-if="errors['payment_method']">
+      <p class="text-sm text-red-500 col-span-full" x-text="errors['payment_method']"></p>
+    </template>
     <!-- Option 1: ONLINE PAYMENT -->
     <div class="flex items-center">
       <div class="flex-1 flex gap-x-6 gap-y-2 flex-wrap items-center">

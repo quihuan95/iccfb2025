@@ -102,6 +102,7 @@ class InternationalRegistrationResource extends Resource
                     ->label('Conference Type')
                     ->wrap(), // Nếu label dài quá thì cho xuống dòng
 
+                Tables\Columns\TextColumn::make('paper_id')->label('Paper ID'),
                 Tables\Columns\TextColumn::make('paper_title')->label('Paper Title')->wrap(),
 
                 Tables\Columns\TextColumn::make('payment_method')->label('Payment Method'),
