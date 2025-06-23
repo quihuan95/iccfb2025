@@ -59,22 +59,7 @@ class InternationalRegistrationResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('registration_code')->label('Registration Code')->searchable()->sortable(),
-                Tables\Columns\TextColumn::make('title')
-                    ->label('Title')
-                    ->formatStateUsing(function ($state, $record) {
-                        // $state là array (do được cast)
-                        if (!is_array($state)) return $state;
-
-                        // Nếu có 'Other' thì trả về other_title
-                        if (in_array('Other', $state)) {
-                            return $record->other_title ?: 'Other';
-                        }
-
-                        // Ngược lại nối lại thành chuỗi
-                        return implode(', ', $state);
-                    })
-                    ->sortable()
-                    ->searchable(),
+                Tables\Columns\TextColumn::make('display_title')->label('Title')->sortable()->searchable(),
 
                 Tables\Columns\TextColumn::make('fullname')->label('Full Name')->searchable()->sortable(),
 
