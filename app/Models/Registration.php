@@ -42,7 +42,7 @@ class Registration extends Model
             // Khóa bản ghi cuối cùng để tránh race condition
             $latest = DB::table('registrations')
                 ->where('registration_code', 'like', $prefix . '%')
-                ->orderByDesc('id')
+                ->orderByDesc('created_at')
                 ->lockForUpdate()
                 ->first();
 
