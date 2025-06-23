@@ -38,10 +38,10 @@ class Registration extends Model
     {
         $prefix = $type === 'vietnamese' ? 'ICCFB2025-VN' : 'ICCFB2025';
 
-        return DB::transaction(function () use ($prefix) {
+        return DB::transaction(function () use ($prefix, $type) {
             // Khóa bản ghi cuối cùng để tránh race condition
             $latest = DB::table('registrations')
-                ->where('registration_code', 'like', $prefix . '%')
+                ->where('register_type', $type)
                 ->orderByDesc('created_at')
                 ->lockForUpdate()
                 ->first();
