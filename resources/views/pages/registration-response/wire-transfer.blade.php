@@ -32,7 +32,7 @@
       Please indicate, "<strong> {{ $registration['fullname'] ?? 'Full Name' }} – {{ $registration['registration_code'] ?? 'Registration ID' }} paid for ICCFB 2025</strong>" as a
       reference and send proof of bank transfer to
       <a href="mailto:iccfb@hcmut.edu.vn" class="text-blue-600 underline">iccfb@hcmut.edu.vn</a> &
-      <a href="mailto:dh.qt1@hoabinh-group.com" class="text-blue-600 underline">dh.qt1@hoabinh-group.com</a>.
+      <a href="mailto:dh.qt2@hoabinh-group.com" class="text-blue-600 underline">dh.qt2@hoabinh-group.com</a>.
     </p>
   </div>
 @endsection

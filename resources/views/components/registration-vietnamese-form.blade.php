@@ -209,7 +209,7 @@
           <div class="text-gray-600">: MSCBVNVX</div>
         </div>
         <div class="font-semibold text-blue-800 italic mt-4">
-          Please indicate "|Full name – Registration ID| paid for ICCFB 2025” as a reference and send proof of bank transfer to iccfb@hcmut.edu.vn & dh.qt1@hoabinh-group.com
+          Please indicate "|Full name – Registration ID| paid for ICCFB 2025” as a reference and send proof of bank transfer to iccfb@hcmut.edu.vn & dh.qt2@hoabinh-group.com
         </div>
       </div>
     </template>

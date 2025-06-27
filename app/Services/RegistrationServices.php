@@ -27,7 +27,7 @@ class RegistrationServices
       ->cc([
         'iccfb@hcmut.edu.vn',
         'vicky@hoabinhtourist.com',
-        'dh.qt1@hoabinh-group.com',
+        'dh.qt2@hoabinh-group.com',
         'dh.qt2@hoabinh-group.com',
       ])
       ->send(new RegistrationConfirmed($registration->toArray()));
@@ -39,7 +39,7 @@ class RegistrationServices
       ->cc([
         'iccfb@hcmut.edu.vn',
         'vicky@hoabinhtourist.com',
-        'dh.qt1@hoabinh-group.com',
+        'dh.qt2@hoabinh-group.com',
         'dh.qt2@hoabinh-group.com',
       ])
       ->send(new RegistrationWireTransfer($registration->toArray()));

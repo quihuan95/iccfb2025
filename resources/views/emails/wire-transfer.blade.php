@@ -36,7 +36,7 @@
   <p>
     Please send proof of bank transfer to
     <a href="mailto:iccfb@hcmut.edu.vn">iccfb@hcmut.edu.vn</a> &
-    <a href="mailto:dh.qt1@hoabinh-group.com">dh.qt1@hoabinh-group.com</a>.
+    <a href="mailto:dh.qt2@hoabinh-group.com">dh.qt2@hoabinh-group.com</a>.
     Receipt will be sent to you after payment completion.
   </p>
 

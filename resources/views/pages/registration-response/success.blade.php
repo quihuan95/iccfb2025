@@ -10,7 +10,7 @@
     <p class="mt-4 text-gray-600">
       If you require additional assistance, please contact us at
       <a href="mailto:iccfb@hcmut.edu.vn" class="text-blue-600 underline">iccfb@hcmut.edu.vn</a> &
-      <a href="mailto:dh.qt1@hoabinh-group.com" class="text-blue-600 underline">dh.qt1@hoabinh-group.com</a>.
+      <a href="mailto:dh.qt2@hoabinh-group.com" class="text-blue-600 underline">dh.qt2@hoabinh-group.com</a>.
     </p>
   </div>
 @endsection

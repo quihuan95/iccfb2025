@@ -37,7 +37,7 @@
   <p>
     If you need any further assistance, please feel free to contact us at
     <a href="mailto:iccfb@hcmut.edu.vn">iccfb@hcmut.edu.vn</a> &
-    <a href="mailto:dh.qt1@hoabinh-group.com">dh.qt1@hoabinh-group.com</a>.
+    <a href="mailto:dh.qt2@hoabinh-group.com">dh.qt2@hoabinh-group.com</a>.
   </p>
 
   <p>We look forward to seeing you in Ho Chi Minh City!</p>
