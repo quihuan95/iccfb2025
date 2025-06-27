@@ -56,6 +56,10 @@ class RegistrationController extends Controller
             // Giả sử $this->registration là model hoặc service
             $registration = $this->registrationServices->create($data);
             if ($registration->payment_method == 'online') {
+                $amount = json_decode($registration->display_conference)->fee;
+                $amount = $amount * "106";
+                $amount = number_format($amount / 100, 2, '.', ',');
+                $registration->update(['total_fee' => $amount]);
                 $this->registrationServices->sendMail($registration);
                 $paymentUrl = $this->registrationServices->makeOnepayUrl($registration->toArray());
                 return response()->json([
@@ -112,6 +116,10 @@ class RegistrationController extends Controller
             $data['register_type'] = 'vietnamese';
             $registration = $this->registrationServices->create($data);
             if ($registration->payment_method == 'online') {
+                $amount = json_decode($registration->display_conference)->fee / 100;
+                $amount = $amount * "106";
+                $amount = number_format($amount, 2, '.', '');
+                $registration->update(['total_fee' => $amount]);
                 $this->registrationServices->sendMail($registration);
                 $paymentUrl = $this->registrationServices->makeOnepayUrl($registration->toArray());
                 return response()->json([
@@ -149,12 +157,6 @@ class RegistrationController extends Controller
         $data = $request->all();
         $id = $data['id'] ?? null;
 
-        $amount = number_format($data['vpc_Amount'] / 100, 2, '.', ',');
-        if ($data['register_type'] == 'vietnamese') {
-            $amount = (int) $data['vpc_Amount'] / 100;
-            $amount = number_format($amount, 2, '.', '');
-        }
-
         $vpc_TxnResponseCode = $data['vpc_TxnResponseCode'] ?? 'null';
 
         $registration = Registration::where('id', $id)->first();
@@ -174,8 +176,6 @@ class RegistrationController extends Controller
                 $registration->payment_status = 'failed';
                 break;
         }
-
-        $registration->total_fee = $amount;
         $registration->save();
 
         if ($canSendMail) {
