@@ -19,7 +19,7 @@
       <table class="min-w-full border border-gray-300">
         <thead>
           <tr class="bg-gray-100">
-            <th class="border border-gray-300 px-4 py-2 text-left">Room type</th>
+            <th class="border border-gray-300 px-4 py-2 text-center">Room type</th>
             <th class="border border-gray-300 px-4 py-2 text-center">Rate via Agoda</th>
             <th class="border border-gray-300 px-4 py-2 text-center">Rate via HBG</th>
             <th class="border border-gray-300 px-4 py-2 text-center"></th>
@@ -27,33 +27,33 @@
         </thead>
         <tbody>
           <tr>
-            <td class="border border-gray-300 px-4 py-2">
+            <td class="border border-gray-300 px-4 py-2 text-center">
               <strong>PREMIER Double - 28sqm</strong><br>
               01 King bed for maximum 02 occupancies
             </td>
-            <td class="border border-gray-300 px-4 py-2 text-red-600 font-semibold text-center">
+            <td class="border border-gray-300 px-4 py-2 text-center">
               2.560.000++ VND/room/night
             </td>
-            <td class="border border-gray-300 px-4 py-2 text-center">
+            <td class="border border-gray-300 px-4 py-2 text-red-600 font-semibold text-center">
               2.450.000++ VND/room/night<br>
             </td>
             <td class="border border-gray-300 px-4 py-2 text-center">
-              <a href="https://vi.bookandpay.vn/book-hotels/662?num=1" class="text-blue-600 font-bold underline">BOOK NOW</a>
+              <a href="https://bookandpay.vn/book-hotels/66?num=1" class="text-blue-600 font-bold underline">BOOK NOW</a>
             </td>
           </tr>
           <tr>
-            <td class="border border-gray-300 px-4 py-2">
+            <td class="border border-gray-300 px-4 py-2 text-center">
               <strong>PREMIER Twin - 28sqm</strong><br>
               02 Single beds for maximum 02 occupancies
             </td>
-            <td class="border border-gray-300 px-4 py-2 text-red-600 font-semibold text-center">
+            <td class="border border-gray-300 px-4 py-2 text-center">
               2.560.000++ VND/room/night
             </td>
-            <td class="border border-gray-300 px-4 py-2 text-center">
+            <td class="border border-gray-300 px-4 py-2 text-red-600 font-semibold text-center">
               2.450.000++ VND/room/night<br>
             </td>
             <td class="border border-gray-300 px-4 py-2 text-center">
-              <a href="https://vi.bookandpay.vn/book-hotels/662?num=2" class="text-blue-600 font-bold underline">BOOK NOW</a>
+              <a href="https://bookandpay.vn/book-hotels/66?num=2" class="text-blue-600 font-bold underline">BOOK NOW</a>
             </td>
           </tr>
         </tbody>
@@ -65,7 +65,8 @@
       <ul class="list-disc pl-5 space-y-2">
         <li>All the rates above include breakfast, in-room Wi-Fi, two bottles of mineral water per room per day, and complimentary access to the gym and pool. A 5% service charge and
           8% VAT are not included.</li>
-        <li>For urgent help with booking issues or additional directions, please feel free to contact Dustin at: Mobile/WhatsApp: +84 939 555 833 | Email: dh.qt2@hoabinh-group.com
+        <li>For urgent help with booking issues or additional directions, please feel free to contact Dustin at: <br> Mobile/WhatsApp: +84 939 555 833 | Email:
+          dh.qt2@hoabinh-group.com
         </li>
       </ul>
     </div>
