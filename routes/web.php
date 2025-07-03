@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('pages.home');
 });
 
+Route::get('/accomodation', function () {
+    return view('pages.accomodation');
+});
+
 // Route::get('/', [RegistrationController::class, 'get_view_international']);
 
 Route::get('/registration-international', [RegistrationController::class, 'get_view_international'])->name('registration.form.international');
