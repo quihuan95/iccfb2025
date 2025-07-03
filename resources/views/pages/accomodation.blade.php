@@ -38,7 +38,7 @@
               2.450.000++ VND/room/night<br>
             </td>
             <td class="border border-gray-300 px-4 py-2 text-center">
-              <a href="https://bookandpay.vn/book-hotels/66?num=1" class="text-blue-600 font-bold underline">BOOK NOW</a>
+              <a href="https://vi.bookandpay.vn/book-hotels/66?num=1" class="text-blue-600 font-bold underline">BOOK NOW</a>
             </td>
           </tr>
           <tr>
@@ -53,7 +53,7 @@
               2.450.000++ VND/room/night<br>
             </td>
             <td class="border border-gray-300 px-4 py-2 text-center">
-              <a href="https://bookandpay.vn/book-hotels/66?num=2" class="text-blue-600 font-bold underline">BOOK NOW</a>
+              <a href="https://vi.bookandpay.vn/book-hotels/66?num=2" class="text-blue-600 font-bold underline">BOOK NOW</a>
             </td>
           </tr>
         </tbody>
